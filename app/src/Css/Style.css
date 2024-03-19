@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.bg {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.bg .brand {
+    font-family: "Lakki Reddy", serif;
+    text-decoration: none;
+    color: orange;
+    font-size: 36px;
+}
+
+.link li {
+    color: orange;
+    font-size: 20px;
+    margin-right: 15px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 150vh; 
+    background-image: url('../Images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+  }
+  .text {
+    position: absolute;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    font-size: 24px; 
+    font-weight: bold; 
+    text-align: center; 
+    z-index: 1; 
+    margin-top: 400px;
+  }
+  .text div{
+    color: white;
+  }
+  .text h1{
+    color: orange;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+  }
+
