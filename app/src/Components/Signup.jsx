@@ -1,7 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Signup = () => {
+
+    const navigate=useNavigate()
+
+    const handleSubmit=()=>{
+        navigate('/user')
+    }
+
     return (
         <>
 
@@ -15,7 +22,7 @@ const Signup = () => {
                             </div>
                         </div>
                         <div className='form col-lg-6 col-md-12 '>
-                            <form action="">
+                            <form action="" onSubmit={handleSubmit}>
 
                                 <input type="text" name="" id="" placeholder='Name' />
                                 <input type="text" name="" id="" placeholder="Date of Birth" onFocus={(e) => e.target.type = 'date'} onBlur={(e) => e.target.type = 'text'} />

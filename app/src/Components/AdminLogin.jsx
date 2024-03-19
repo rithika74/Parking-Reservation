@@ -1,6 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const AdminLogin = () => {
+
+    const navigate=useNavigate()
+
+    const handleSubmit=()=>{
+        navigate('/adminpage')
+    }
+
+
     return (
         <>
 
@@ -14,7 +23,7 @@ const AdminLogin = () => {
                             </div>
                         </div>
                         <div className='form col-lg-6 col-md-12 '>
-                            <form action="">
+                            <form action="" onSubmit={handleSubmit}>
                                 <input type="email" name="" id="" placeholder='Email ID' />
                                 <input type="password" name="" id="" placeholder='Password' />
                                 <button className='btn'>LOGIN</button>

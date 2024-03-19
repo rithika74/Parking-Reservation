@@ -8,7 +8,6 @@ const Index = () => {
         <>
 
             <section className="image-container">
-                {/* <img src={img} alt="" width={'100%'}/> */}
                 <div className="overlay"></div>
                 <div className="text">
                     <h1>Parking Reservation System</h1>

@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-import './Css/Style.css'
-import App from './App';
+import './Css/Style.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Components/Home';
@@ -12,6 +11,12 @@ import UserLogin from './Components/UserLogin';
 import AdminLogin from './Components/AdminLogin';
 import Index from './Components/Index';
 import Signup from './Components/Signup';
+import User from './Components/User';
+import Admin from './Components/Admin';
+import ReserveSlot from './Components/ReserveSlot';
+import Reservations from './Components/Reservations';
+import UserReservations from './Components/UserReservations';
+import UserDetails from './Components/UserDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +28,16 @@ root.render(
           <Route path='user' element={<UserLogin />} />
           <Route path='admin' element={<AdminLogin />} />
           <Route path='signup' element={<Signup />} />
+        </Route>
+        <Route path='/userpage' element={<User />}>
+          <Route index element={<Index />} />
+          <Route path='reserve' element={<ReserveSlot />} />
+          <Route path='reservations' element={<Reservations />} />
+        </Route>
+        <Route path='/adminpage' element={<Admin />}>
+          <Route index element={<Index />} />
+          <Route path='viewreservations' element={<UserReservations />} />
+          <Route path='userdetails' element={<UserDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>
