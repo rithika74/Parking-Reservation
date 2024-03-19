@@ -11,6 +11,7 @@ import Home from './Components/Home';
 import UserLogin from './Components/UserLogin';
 import AdminLogin from './Components/AdminLogin';
 import Index from './Components/Index';
+import Signup from './Components/Signup';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
           <Route index element={<Index />} />
           <Route path='user' element={<UserLogin />} />
           <Route path='admin' element={<AdminLogin />} />
+          <Route path='signup' element={<Signup />} />
         </Route>
       </Routes>
     </BrowserRouter>

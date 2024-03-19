@@ -6,6 +6,9 @@
     justify-content: space-around;
 
 }
+.back{
+    background-color: rgb(43, 39, 39);
+}
 
 .bg .brand {
     font-family: "Lakki Reddy", serif;
@@ -58,3 +61,55 @@
     font-size: 48px;
   }
 
+/*////////////////////////////////////////////////////////*/
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.form input,select{
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(179, 174, 174);
+    font-family: "Montserrat", sans-serif;
+}
+.btn{
+    width: 70%;
+    padding: 10px 10px;
+    border-radius: 5px;
+    background-color: orange;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    border: none;
+}
+.btn:hover{
+    background-color: rgb(192, 127, 7);
+}
+.li{
+    color: rgb(192, 127, 7);
+}
+.li:hover{
+    color: orange;
+}
+.form label{
+    font-family: "Montserrat", sans-serif;
+}
+.hd{
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 52px;
+    color: orange;
+    font-weight: bold;
+}

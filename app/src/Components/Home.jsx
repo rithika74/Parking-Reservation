@@ -26,8 +26,8 @@ const Home = () => {
                 <Navbar
                     expand="lg"
                     variant="light"
-                    className="shadow-sm fixed-top "
-                    style={{backgroundColor:'black'}}
+                    className="shadow-sm fixed-top back "
+                    // style={{backgroundColor:'black'}}
                     expanded={isNavExpanded}
                     onToggle={toggleNavbar}
                 >
