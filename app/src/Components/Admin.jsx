@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,6 +10,13 @@ const Admin = () => {
 
     const [isNavExpanded, setIsNavExpanded] = useState(false);
     const navigate = useNavigate()
+    const email = localStorage.getItem('email');
+
+    useEffect(() => {
+        if (!email) {
+            navigate('/');
+        }
+    }, [email, navigate]);
 
     const toggleNavbar = () => {
         setIsNavExpanded(!isNavExpanded);
@@ -20,7 +27,7 @@ const Admin = () => {
     };
 
     const handleClick = () => {
-        // localStorage.clear();
+        localStorage.clear();
         navigate('/');
     };
 
@@ -32,7 +39,6 @@ const Admin = () => {
                     expand="lg"
                     variant="light"
                     className="shadow-sm fixed-top back "
-                    // style={{backgroundColor:'black'}}
                     expanded={isNavExpanded}
                     onToggle={toggleNavbar}
                 >

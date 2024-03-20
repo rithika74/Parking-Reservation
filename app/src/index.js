@@ -7,8 +7,6 @@ import './Css/Style.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Components/Home';
-import UserLogin from './Components/UserLogin';
-import AdminLogin from './Components/AdminLogin';
 import Index from './Components/Index';
 import Signup from './Components/Signup';
 import User from './Components/User';

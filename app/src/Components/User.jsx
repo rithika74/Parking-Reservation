@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,7 +8,14 @@ import logo from '../Images/logo.png'
 const User = () => {
 
     const [isNavExpanded, setIsNavExpanded] = useState(false);
-    const navigate=useNavigate()
+    const navigate = useNavigate()
+    const token = localStorage.getItem('token');
+
+    useEffect(() => {
+        if (!token) {
+            navigate('/');
+        }
+    }, [token, navigate]);
 
     const toggleNavbar = () => {
         setIsNavExpanded(!isNavExpanded);
@@ -19,9 +26,9 @@ const User = () => {
     };
 
     const handleClick = () => {
-        // localStorage.clear();
+        localStorage.clear();
         navigate('/');
-      };
+    };
 
     return (
         <>
@@ -31,7 +38,6 @@ const User = () => {
                     expand="lg"
                     variant="light"
                     className="shadow-sm fixed-top back "
-                    // style={{backgroundColor:'black'}}
                     expanded={isNavExpanded}
                     onToggle={toggleNavbar}
                 >
