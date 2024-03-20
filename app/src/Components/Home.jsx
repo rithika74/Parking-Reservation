@@ -37,8 +37,10 @@ const Home = () => {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ms-auto link">
                                 <Nav.Link as={Link} to='/' onClick={handleNavLinkClick}><li>Home</li></Nav.Link>
-                                <Nav.Link as={Link} to='/user' onClick={handleNavLinkClick}><li>User Login</li></Nav.Link>
-                                <Nav.Link as={Link} to='/admin' onClick={handleNavLinkClick}><li>Admin Login</li></Nav.Link>
+                                <Nav.Link as={Link} to='/signup' onClick={handleNavLinkClick}><li>Register</li></Nav.Link>
+                                <Nav.Link as={Link} to='/login' onClick={handleNavLinkClick}><li>Login</li></Nav.Link>
+                                {/* <Nav.Link as={Link} to='/user' onClick={handleNavLinkClick}><li>User Login</li></Nav.Link>
+                                <Nav.Link as={Link} to='/admin' onClick={handleNavLinkClick}><li>Admin Login</li></Nav.Link> */}
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

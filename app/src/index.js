@@ -17,6 +17,9 @@ import ReserveSlot from './Components/ReserveSlot';
 import Reservations from './Components/Reservations';
 import UserReservations from './Components/UserReservations';
 import UserDetails from './Components/UserDetails';
+import Login from './Components/Login';
+import Provider from './Components/Provider';
+import Reports from './Components/Reports';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,8 +28,9 @@ root.render(
       <Routes>
         <Route path='/' element={<Home />}>
           <Route index element={<Index />} />
-          <Route path='user' element={<UserLogin />} />
-          <Route path='admin' element={<AdminLogin />} />
+          {/* <Route path='user' element={<UserLogin />} /> */}
+          <Route path='login' element={<Login />} />
+          {/* <Route path='admin' element={<AdminLogin />} /> */}
           <Route path='signup' element={<Signup />} />
         </Route>
         <Route path='/userpage' element={<User />}>
@@ -38,6 +42,12 @@ root.render(
           <Route index element={<Index />} />
           <Route path='viewreservations' element={<UserReservations />} />
           <Route path='userdetails' element={<UserDetails />} />
+          <Route path='reports' element={<Reports />} />
+        </Route>
+        <Route path='/providerpage' element={<Provider />}>
+          <Route index element={<Index />} />
+          {/* <Route path='viewreservations' element={<UserReservations />} />
+          <Route path='userdetails' element={<UserDetails />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>
