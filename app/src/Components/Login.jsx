@@ -39,6 +39,7 @@ const Login = () => {
         event.preventDefault()
         if (data.email === 'admin@gmail.com' && data.password === 'admin') {
             console.log('success');
+            window.alert('Admin Login Success')
             localStorage.setItem('email',data.email);
             navigate('/adminpage')
         }
@@ -55,20 +56,23 @@ const Login = () => {
                 if (response.data) {
                     if (response.data.user.usertype === 'provider') {
                         console.log('success');
+                        window.alert('Provider Login Success')
                         navigate('/providerpage');
                     }
                     if (response.data.user.usertype === 'user') {
                         console.log('success');
+                        window.alert('User Login Success')
                         navigate('/userpage');
                     }
-                }
-                else {
-                    toast.error('Login Failed')
                 }
 
 
             } catch (e) {
-                toast.error('Login Failed');
+                if (e.response && e.response.status === 401) {
+                    window.alert('Invalid email or password');
+                } else {
+                    window.alert('Login Failed');
+                }
             }
         }
     }

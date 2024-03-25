@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+*{
+    font-family: "Montserrat", sans-serif;
+}
+
 .bg {
     display: flex;
     justify-content: space-around;
@@ -20,9 +24,8 @@
 
 .link li {
     color: orange;
-    font-size: 20px;
-    margin-right: 15px;
-    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    margin-right: 10px;
 }
 
 .image-container {
@@ -51,9 +54,7 @@
     font-weight: bold;
     text-align: center;
     z-index: 1;
-    margin-top: 400px;
-    overflow-y: auto;
-    max-height: calc(100vh - 400px);
+    margin-top: 300px;
 }
 
 .text div {
@@ -62,15 +63,29 @@
 
 .text h1 {
     color: orange;
-    font-family: "Montserrat", sans-serif;
     font-weight: bold;
     font-size: 48px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+    .text h1 {
+        font-size: 32px;
+    }
+
     .text {
-        overflow-y: auto;
+        font-size: 18px;
         margin-top: 300px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .text h1 {
+        font-size: 32px;
+    }
+
+    .text {
+        margin-top: 300px;
+        margin-bottom: 20px;
     }
 }
 
@@ -100,7 +115,10 @@ select {
     border-radius: 5px;
     outline: none;
     border: 1px solid rgb(179, 174, 174);
-    font-family: "Montserrat", sans-serif;
+}
+
+.form select {
+    width: 70%;
 }
 
 .btn {
@@ -109,7 +127,6 @@ select {
     border-radius: 5px;
     background-color: orange;
     font-size: 20px;
-    font-family: "Montserrat", sans-serif;
     color: black;
     border: none;
 }
@@ -126,13 +143,8 @@ select {
     color: orange;
 }
 
-.form label {
-    font-family: "Montserrat", sans-serif;
-}
-
 .hd {
     text-align: center;
-    font-family: "Montserrat", sans-serif;
     font-size: 52px;
     color: orange;
     font-weight: bold;
@@ -140,3 +152,130 @@ select {
 
 /*//////////////////////////////////////////////////////////*/
 
+.reserve {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.reserve form input,
+select {
+    width: 100%;
+    /* margin-bottom: 15px; */
+    margin: 0px 15px 15px 15px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(179, 174, 174);
+}
+
+.reserve label {
+    margin: 0px 20px 0px 20px;
+}
+
+.reserve h1 {
+    text-align: center;
+    font-size: 36px;
+    color: rgb(241, 172, 42);
+    font-weight: 200;
+}
+
+.reserve form button {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 0px 20px 15px 20px;
+    border-radius: 5px;
+    background-color: orange;
+    font-size: 20px;
+    color: black;
+    border: none;
+}
+
+.reserve form button:hover {
+    background-color: rgb(192, 127, 7);
+}
+
+/*///////////////////////////////////////////////////////*/
+
+.table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table table {
+    border: 1px solid black;
+    /* width: 50%; */
+    font-size: 18px;
+}
+
+.table th{
+    border: 1px solid black;
+    text-align: center;
+    padding: 20px 0px;
+    /* width: 50%; */
+}
+
+.table td{
+    border: 1px solid black;
+    padding: 10px 20px;
+}
+
+/*//////////////////////////////////////////////////*/
+
+.area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.area button{
+    margin-bottom: 50px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 40px;
+    background-color: black;
+    color: orange;
+    font-weight: 700;
+}
+
+/*////////////////////////////////////////////*/
+
+.add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.add input{
+    width: 60%;
+    margin-bottom: 15px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(179, 174, 174);
+}
+.add button{
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+    background-color: orange;
+    padding: 10px;
+}
+.add button:hover{
+    background-color: rgb(192, 127, 7);
+}
