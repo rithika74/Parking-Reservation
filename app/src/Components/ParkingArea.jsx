@@ -7,7 +7,7 @@ const ParkingArea = () => {
 
     useEffect(() => {
         const fetchdata = async () => {
-            let response = await axios.get('http://localhost:4000/viewarea')
+            let response = await axios.get('http://localhost:4000/allarea')
             console.log(response.data);
             setData(response.data)
         }

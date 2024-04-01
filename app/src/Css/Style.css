@@ -279,3 +279,20 @@ select {
 .add button:hover{
     background-color: rgb(192, 127, 7);
 }
+
+/*///////////////////////////////////////////////*/
+
+.slot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slot div{
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: orange;
+    font-weight: 500;
+    box-shadow: 1px 1px gray;
+}
