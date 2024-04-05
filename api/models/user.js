@@ -26,7 +26,8 @@ const userScheme = new mongoose.Schema({
         type: String
     },
     status: {
-        type: String
+        type: String,
+        // enum: ['pend']
     }
 })
 

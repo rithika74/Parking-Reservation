@@ -49,7 +49,7 @@ const Provider = () => {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ms-auto link">
                                 <Nav.Link as={Link} to='/providerpage' onClick={handleNavLinkClick}><li>Home</li></Nav.Link>
-                                <Nav.Link as={Link} to='/providerpage/userdetails' onClick={handleNavLinkClick}><li>Location and Spaces</li></Nav.Link>
+                                <Nav.Link as={Link} to='/providerpage/parkingareas' onClick={handleNavLinkClick}><li>Location and Spaces</li></Nav.Link>
                                 <Nav.Link as={Link} to='/providerpage/viewreservations' onClick={handleNavLinkClick}><li>Reservations</li></Nav.Link>
                                 <Nav.Link onClick={handleClick}><li>Logout</li></Nav.Link>
                             </Nav>

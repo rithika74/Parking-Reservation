@@ -11,3 +11,4 @@ const parkingScheme = new mongoose.Schema({
 
 let Parking = mongoose.model('Parking', parkingScheme, 'parking')
 module.exports = Parking
+

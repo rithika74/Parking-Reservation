@@ -38,20 +38,21 @@ root.render(
           <Route path='reserve' element={<ReserveSlot />} />
           <Route path='reservations' element={<Reservations />} />
           <Route path='areas' element={<ParkingArea />} />
-          <Route path='slots' element={<Slots />} />
+          <Route path='slots/:id' element={<Slots />} />
         </Route>
         <Route path='/adminpage' element={<Admin />}>
           <Route index element={<Index />} />
-          <Route path='parkingareas' element={<Areas />} />
-          <Route path='addareas' element={<AddAreas />} />
+          {/* <Route path='parkingareas' element={<Areas />} />
+          <Route path='addareas' element={<AddAreas />} /> */}
+          <Route path='areas' element={<ParkingArea />} />
           <Route path='viewreservations' element={<UserReservations />} />
           <Route path='userdetails' element={<UserDetails />} />
           <Route path='reports' element={<Reports />} />
         </Route>
         <Route path='/providerpage' element={<Provider />}>
           <Route index element={<Index />} />
-          {/* <Route path='viewreservations' element={<UserReservations />} />
-          <Route path='userdetails' element={<UserDetails />} /> */}
+          <Route path='parkingareas' element={<Areas />} />
+          <Route path='addareas' element={<AddAreas />} />
         </Route>
       </Routes>
     </BrowserRouter>

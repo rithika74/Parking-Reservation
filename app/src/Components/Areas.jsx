@@ -8,7 +8,7 @@ const Areas = () => {
     const [data, setData] = useState([])
 
     const handleClick = () => {
-        navigate('/adminpage/addareas')
+        navigate('/providerpage/addareas')
     }
 
     useEffect(() => {

@@ -25,3 +25,4 @@ const slotScheme = new mongoose.Schema({
 
 let Slot = mongoose.model('Slot', slotScheme, 'slot')
 module.exports = Slot
+

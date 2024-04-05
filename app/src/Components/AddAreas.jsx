@@ -22,7 +22,7 @@ const AddAreas = () => {
                     setData('')
                     console.log('success');
                     alert('Location and Sapce Added')
-                    navigate('/adminpage/parkingareas')
+                    navigate('/providerpage/parkingareas')
                 }
             } catch (error) {
                 console.error('Error:', error);

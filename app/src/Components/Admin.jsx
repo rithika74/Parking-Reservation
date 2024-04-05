@@ -57,7 +57,7 @@ const Admin = () => {
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item ><li>Reports</li></NavDropdown.Item>
                                 </NavDropdown> */}
-                                <Nav.Link as={Link} to='/adminpage/parkingareas' onClick={handleNavLinkClick}><li>Parking Locations</li></Nav.Link>
+                                <Nav.Link as={Link} to='/adminpage/areas' onClick={handleNavLinkClick}><li>Parking Locations</li></Nav.Link>
                                 <Nav.Link as={Link} to='/adminpage/userdetails' onClick={handleNavLinkClick}><li>User Details</li></Nav.Link>
                                 <Nav.Link as={Link} to='/adminpage/viewreservations' onClick={handleNavLinkClick}><li>Reservations</li></Nav.Link>
                                 <Nav.Link as={Link} to='/adminpage/reports' onClick={handleNavLinkClick}><li>Reports</li></Nav.Link>
