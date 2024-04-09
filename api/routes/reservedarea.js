@@ -1,6 +1,5 @@
 const express=require('express')
 const router=express.Router()
-const Slot=require('../models/slot')
 const Parking=require('../models/parking')
 
 router.get('/:id', async(req,res)=>{

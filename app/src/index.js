@@ -38,7 +38,7 @@ root.render(
           <Route path='reserve' element={<ReserveSlot />} />
           <Route path='reservations' element={<Reservations />} />
           <Route path='areas' element={<ParkingArea />} />
-          <Route path='slots/:id' element={<Slots />} />
+          <Route path='slots/:areaId/:slotId' element={<Slots />} />
         </Route>
         <Route path='/adminpage' element={<Admin />}>
           <Route index element={<Index />} />

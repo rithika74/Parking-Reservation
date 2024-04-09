@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     font-family: "Montserrat", sans-serif;
 }
 
@@ -217,27 +217,28 @@ select {
     font-size: 18px;
 }
 
-.table th{
+.table th {
     border: 1px solid black;
     text-align: center;
     padding: 20px 0px;
     /* width: 50%; */
 }
 
-.table td{
+.table td {
     border: 1px solid black;
     padding: 10px 20px;
 }
 
 /*//////////////////////////////////////////////////*/
 
-.area{
+.area {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.area button{
+
+.area button {
     margin-bottom: 50px;
     border: none;
     border-radius: 20px;
@@ -249,19 +250,19 @@ select {
 
 /*////////////////////////////////////////////*/
 
-.add{
+.add {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.add form{
+.add form {
     display: flex;
     flex-direction: column;
     width: 50%;
 }
 
-.add input{
+.add input {
     width: 60%;
     margin-bottom: 15px;
     padding: 10px 10px;
@@ -269,37 +270,63 @@ select {
     outline: none;
     border: 1px solid rgb(179, 174, 174);
 }
-.add button{
+
+.add button {
     width: 60%;
     border: none;
     border-radius: 5px;
     background-color: orange;
     padding: 10px;
 }
-.add button:hover{
+
+.add button:hover {
     background-color: rgb(192, 127, 7);
 }
 
 /*///////////////////////////////////////////////*/
 
-.slot{
+.slot {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px 200px;
+    /* margin: 0px 200px; */
 }
-.slot div{
+
+.slot div {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
 }
-.slots{
+
+.slots {
     cursor: pointer;
     margin: 10px;
     padding: 10px 0px;
     width: 80px;
     border-radius: 5px;
-    background-color: orange;
+    background-color: gainsboro;
     font-weight: 500;
     box-shadow: 1px 1px gray;
+    transition: background-color 0.3s ease;
+}
+
+.slots.selected {
+    background-color: green;
+    color: white;
+  }
+
+.hd2 {
+    text-align: center;
+    font-size: 36px;
+    color: rgb(241, 172, 42);
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+.btn2{
+    margin-top: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: orange;
+    padding: 10px 15px;
+    width: 100%;
 }
