@@ -7,7 +7,7 @@ const ReserveSlot = () => {
   const navigate = useNavigate()
 
   const [area, setArea] = useState([])
-  const [data, setData] = useState('')
+  const [data, setData] = useState([])
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -31,8 +31,10 @@ const ReserveSlot = () => {
         console.log('Selected area:', data.area);
         const selectedArea = area.find((item) => item.area === data.area);
         console.log('Selected area object:', selectedArea);
+        const userId = localStorage.getItem('id');
+        const reserveData = { ...data, userId: userId }
         if (selectedArea) {
-          const response = await axios.post('http://localhost:4000/reserve', data);
+          const response = await axios.post('http://localhost:4000/reserve', reserveData);
           if (response.data) {
             setData('');
             console.log('success');

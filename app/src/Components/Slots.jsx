@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Slots = () => {
 
+  const navigate = useNavigate();
   const { areaId, slotId } = useParams();
-  const [areadata, setareaData] = useState(null);
-  const [data, setData] = useState(null)
-  const [selectedSlot, setSelectedSlot] = useState(null);
+  const [areadata, setareaData] = useState([]);
+  const [data, setData] = useState([])
+  const [selectedSlot, setSelectedSlot] = useState([]);
   console.log('areaid', areaId);
   console.log('slotid', slotId);
 
@@ -46,11 +47,12 @@ const Slots = () => {
     event.preventDefault();
     if (selectedSlot && data) {
       const updatedData = { ...data, slot: selectedSlot };
-      console.log('dataaa', {slot: selectedSlot});
+      console.log('dataaa', { slot: selectedSlot });
       try {
-        const response = await axios.put(`http://localhost:4000/addslot/${slotId}`, {slotno: selectedSlot});
+        const response = await axios.put(`http://localhost:4000/addslot/${slotId}`, { slotno: selectedSlot });
         console.log('Server response:', response.data);
         alert('Slot reserved successfully');
+        navigate(`/userpage/reservations/${response.data._id}`)
       } catch (error) {
         console.error('Error reserving slot:', error);
         alert('Error reserving slot');

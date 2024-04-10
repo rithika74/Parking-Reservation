@@ -4,7 +4,7 @@ const Slot = require('../models/slot')
 
 router.get('/:id', async (req, res) => {
     const id = req.params.id;
-    let response = await Slot.findById(id);
+    let response = await Slot.find({ userId: id });
     console.log(response);
     res.json(response);
 })

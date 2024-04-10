@@ -36,7 +36,7 @@ root.render(
         <Route path='/userpage' element={<User />}>
           <Route index element={<Index />} />
           <Route path='reserve' element={<ReserveSlot />} />
-          <Route path='reservations' element={<Reservations />} />
+          <Route path='reservations/:id' element={<Reservations />} />
           <Route path='areas' element={<ParkingArea />} />
           <Route path='slots/:areaId/:slotId' element={<Slots />} />
         </Route>

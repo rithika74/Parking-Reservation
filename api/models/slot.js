@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const parking = require('./parking')
+const user = require('./user')
 
 const slotScheme = new mongoose.Schema({
     area: {
@@ -16,6 +17,10 @@ const slotScheme = new mongoose.Schema({
     },
     hours: {
         type: String
+    },
+    userId: {
+        type: mongoose.Types.ObjectId,
+        ref: user
     },
     parking: {
         type: mongoose.Types.ObjectId,

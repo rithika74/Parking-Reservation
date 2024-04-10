@@ -4,7 +4,14 @@ const Slot = require('../models/slot');
 
 router.post('/', async (req, res) => {
     try {
-        const newSlot = new Slot(req.body);
+        const { area, date, time, hours, userId } = req.body;
+        const newSlot = new Slot({
+            area: area,
+            date: date,
+            time: time,
+            hours: hours,
+            userId: userId
+        });
         const response = await newSlot.save();
         console.log(response);
         res.json(response);
