@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 router.post('/', async (req, res) => {
     try {
-        const { email, password, usertype } = req.body;
+        const { email, password, usertype, status } = req.body;
         const user = await User.findOne({ email });
 
         if (!user) {

@@ -7,7 +7,7 @@ const AddAreas = () => {
 
 
     const [data, setData] = useState('')
-    const navigate=useNavigate()
+    const navigate = useNavigate()
 
     const handleChange = (event) => {
         setData({ ...data, [event.target.name]: event.target.value })
@@ -17,7 +17,9 @@ const AddAreas = () => {
         event.preventDefault();
         if (data.area && data.space) {
             try {
-                const response = await axios.post('http://localhost:4000/addarea', data)
+                const userId = localStorage.getItem('id');
+                const areaData = { ...data, userId: userId };
+                const response = await axios.post('http://localhost:4000/addarea', areaData)
                 if (response.data) {
                     setData('')
                     console.log('success');
@@ -48,7 +50,7 @@ const AddAreas = () => {
                 </div>
             </section>
 
-        <ToastContainer/>
+            <ToastContainer />
         </>
     )
 }

@@ -14,6 +14,7 @@ const reserveRoute = require('./routes/reserve');
 const areaRoute = require('./routes/reservedarea');
 const addslotRoute = require('./routes/addslot');
 const slotsRoute = require('./routes/slots');
+const userstatusRoute=require('./routes/userstatus');
 
 mongoose.connect('mongodb://127.0.0.1:27017/parking')
     .then(() => console.log('Connected!'));
@@ -34,6 +35,7 @@ app.use('/reserve', reserveRoute);
 app.use('/reservedarea', areaRoute);
 app.use('/addslot', addslotRoute);
 app.use('/slots', slotsRoute);
+app.use('/userstatus', userstatusRoute);
 
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`);

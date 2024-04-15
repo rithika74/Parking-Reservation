@@ -20,6 +20,26 @@ const UserDetails = () => {
 
   console.log('jhj', data);
 
+  const handleVerify = async (userId) => {
+    try {
+      const response = await axios.patch(`http://localhost:4000/userstatus/${userId}`, {
+        status: true
+      });
+
+      setData((prevData) =>
+        prevData.map((item) =>
+          item.id === userId ? { ...item, status: true } : item
+        )
+      );
+
+      console.log('User verified:', response.data);
+
+      window.location.reload();
+    } catch (error) {
+      console.error('Error verifying user:', error);
+    }
+  };
+
 
   return (
     <>
@@ -37,6 +57,7 @@ const UserDetails = () => {
                 <th>Address</th>
                 <th>Phone Number</th>
                 <th>Usertype</th>
+                <th>Action</th>
               </tr>
               {data.map((item, index) => (
                 <tr key={index}>
@@ -48,6 +69,20 @@ const UserDetails = () => {
                   <td>{item.address}</td>
                   <td>{item.phn}</td>
                   <td>{item.usertype}</td>
+                  <td>
+                    {item.usertype === 'provider' && (
+                      <button
+                        style={{
+                          backgroundColor: item.status ? 'green' : 'red',
+                          color: item.status ? 'white' : 'whitesmoke'
+                        }}
+                        onClick={() => handleVerify(item._id)}
+                        disabled={item.status}
+                      >
+                        {item.status ? 'Verified' : 'Verify'}
+                      </button>
+                    )}
+                  </td>
                 </tr>
               ))}
             </table>

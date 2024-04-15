@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const user = require('./user')
 
 const parkingScheme = new mongoose.Schema({
     area: {
@@ -6,6 +7,10 @@ const parkingScheme = new mongoose.Schema({
     },
     space: {
         type: String
+    },
+    userId: {
+        type: mongoose.Types.ObjectId,
+        ref: user
     }
 })
 

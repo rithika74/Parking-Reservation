@@ -15,14 +15,37 @@ router.post('/', async (req, res) => {
 
         const hashPassword = await bcrypt.hash(req.body.password, saltrounds)
         console.log(hashPassword);
-        let newuser = new User({
-            ...req.body,
-            password: hashPassword
-        })
-        console.log(newuser);
-        let response = await newuser.save();
-        console.log(response);
-        res.json(response)
+
+        if (req.body.usertype === 'provider') {
+            let newuser = new User({
+                ...req.body,
+                password: hashPassword,
+                status: false
+            })
+            console.log(newuser);
+            let response = await newuser.save();
+            console.log(response);
+            res.json(response)
+        } else {
+            let newuser = new User({
+                ...req.body,
+                password: hashPassword,
+                status: true
+            })
+            console.log(newuser);
+            let response = await newuser.save();
+            console.log(response);
+            res.json(response)
+        }
+
+        // let newuser = new User({
+        //     ...req.body,
+        //     password: hashPassword
+        // })
+        // console.log(newuser);
+        // let response = await newuser.save();
+        // console.log(response);
+        // res.json(response)
     } catch (error) {
         console.log(error.message);
     }

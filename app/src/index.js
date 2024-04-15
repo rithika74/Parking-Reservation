@@ -22,6 +22,7 @@ import Slots from './Components/Slots';
 import ParkingArea from './Components/ParkingArea';
 import Areas from './Components/Areas';
 import AddAreas from './Components/AddAreas';
+import Reservation from './Components/Reservation';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -53,6 +54,7 @@ root.render(
           <Route index element={<Index />} />
           <Route path='parkingareas' element={<Areas />} />
           <Route path='addareas' element={<AddAreas />} />
+          <Route path='reservations' element={<Reservation />} />
         </Route>
       </Routes>
     </BrowserRouter>

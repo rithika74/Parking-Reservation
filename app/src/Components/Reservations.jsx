@@ -49,8 +49,8 @@ const Reservations = () => {
                     <td>{item.hours}</td>
                     <td>{item.slotno}</td>
                     <td>
-                      <button>Update</button>
-                      <button>Delete</button>
+                      <button>Modify</button>
+                      <button>Cancel</button>
                     </td>
                   </tr>
                 ))}

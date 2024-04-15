@@ -11,7 +11,7 @@ const Login = () => {
     });
     const navigate = useNavigate()
 
-    
+
 
     const handleChange = (event) => {
         setData({ ...data, [event.target.name]: event.target.value })
@@ -40,26 +40,34 @@ const Login = () => {
         if (data.email === 'admin@gmail.com' && data.password === 'admin') {
             console.log('success');
             window.alert('Admin Login Success')
-            localStorage.setItem('email',data.email);
+            localStorage.setItem('email', data.email);
             navigate('/adminpage')
         }
         else {
             try {
                 let response = await axios.post('http://localhost:4000/login', data)
-                console.log(response.data);
+                console.log('gggg', response.data);
                 const token = response.data.token;
                 console.log(token);
-                localStorage.setItem('token', token)
-                localStorage.setItem('id', response.data.user._id)
-                localStorage.setItem('usertype', response.data.user.usertype)
 
                 if (response.data) {
                     if (response.data.user.usertype === 'provider') {
-                        console.log('success');
-                        window.alert('Provider Login Success')
-                        navigate('/providerpage');
+                        if (response.data.user.status) {
+                            localStorage.setItem('token', token)
+                            localStorage.setItem('id', response.data.user._id)
+                            localStorage.setItem('usertype', response.data.user.usertype)
+                            console.log('success');
+                            window.alert('Provider Login Success')
+                            navigate('/providerpage');
+                        }
+                        else {
+                            alert('Need admin verification for login')
+                        }
                     }
                     if (response.data.user.usertype === 'user') {
+                        localStorage.setItem('token', token)
+                        localStorage.setItem('id', response.data.user._id)
+                        localStorage.setItem('usertype', response.data.user.usertype)
                         console.log('success');
                         window.alert('User Login Success')
                         navigate('/userpage');
