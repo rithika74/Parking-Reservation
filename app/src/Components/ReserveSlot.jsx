@@ -19,6 +19,7 @@ const ReserveSlot = () => {
   }, [])
 
   console.log(area);
+  console.log('provider',area.userId);
 
   const handleChange = (event) => {
     setData({ ...data, [event.target.name]: event.target.value })
@@ -32,7 +33,7 @@ const ReserveSlot = () => {
         const selectedArea = area.find((item) => item.area === data.area);
         console.log('Selected area object:', selectedArea);
         const userId = localStorage.getItem('id');
-        const reserveData = { ...data, userId: userId }
+        const reserveData = { ...data, userId: userId, providerId:selectedArea.userId }
         if (selectedArea) {
           const response = await axios.post('http://localhost:4000/reserve', reserveData);
           if (response.data) {
@@ -41,11 +42,11 @@ const ReserveSlot = () => {
             navigate(`/userpage/slots/${selectedArea._id}/${response.data._id}`);
           }
         } else {
-          toast.error('Selected area not found.');
+          alert('Selected area not found.');
         }
       } catch (error) {
         console.error('Error:', error);
-        toast.error('An error occurred while processing your request.');
+        alert('An error occurred while processing your request.');
       }
     } else {
       alert('Please fill in all fields.');
@@ -56,7 +57,7 @@ const ReserveSlot = () => {
     <>
 
 
-      <section style={{ marginTop: '120px' }} className='reserve'>
+      <section style={{ marginTop: '150px' }} className='reserve'>
         <div >
           <h1>Reserve Your Space</h1>
           <div>

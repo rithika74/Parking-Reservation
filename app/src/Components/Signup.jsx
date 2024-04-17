@@ -25,7 +25,7 @@ const Signup = () => {
             try {
                 const response = await axios.post('http://localhost:4000/register', data);
                 if (response.data.emailExists) {
-                    toast.error('Email already exists.');
+                    alert('Email already exists.');
                 } else {
                     toast.success('Registration successful');
                     setData('');
@@ -33,14 +33,14 @@ const Signup = () => {
                 }
             } catch (error) {
                 if (error.response && error.response.status === 409) {
-                    toast.error('Email already exists.');
+                    alert('Email already exists.');
                 } else {
                     console.error('Error during signup:', error);
-                    toast.error('An error occurred while processing your request.');
+                    alert('An error occurred while processing your request.');
                 }
             }
         } else {
-            toast.error('Please fill in all fields.');
+            alert('Please fill in all fields.');
         }
     };
 

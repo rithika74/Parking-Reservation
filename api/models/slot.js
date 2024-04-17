@@ -18,6 +18,9 @@ const slotScheme = new mongoose.Schema({
     hours: {
         type: String
     },
+    providerId: {
+        type: String
+    },
     userId: {
         type: mongoose.Types.ObjectId,
         ref: user

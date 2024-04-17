@@ -39,7 +39,7 @@ const Login = () => {
         event.preventDefault()
         if (data.email === 'admin@gmail.com' && data.password === 'admin') {
             console.log('success');
-            window.alert('Admin Login Success')
+            alert('Admin Login Success')
             localStorage.setItem('email', data.email);
             navigate('/adminpage')
         }
@@ -57,7 +57,7 @@ const Login = () => {
                             localStorage.setItem('id', response.data.user._id)
                             localStorage.setItem('usertype', response.data.user.usertype)
                             console.log('success');
-                            window.alert('Provider Login Success')
+                            alert('Provider Login Success')
                             navigate('/providerpage');
                         }
                         else {
@@ -69,7 +69,7 @@ const Login = () => {
                         localStorage.setItem('id', response.data.user._id)
                         localStorage.setItem('usertype', response.data.user.usertype)
                         console.log('success');
-                        window.alert('User Login Success')
+                        alert('User Login Success')
                         navigate('/userpage');
                     }
                 }
@@ -77,9 +77,9 @@ const Login = () => {
 
             } catch (e) {
                 if (e.response && e.response.status === 401) {
-                    window.alert('Invalid email or password');
+                    alert('Invalid email or password');
                 } else {
-                    window.alert('Login Failed');
+                    alert('Login Failed');
                 }
             }
         }

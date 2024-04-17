@@ -24,14 +24,14 @@ const AddAreas = () => {
                     setData('')
                     console.log('success');
                     alert('Location and Sapce Added')
-                    navigate('/providerpage/parkingareas')
+                    navigate(`/providerpage/parkingareas/${userId}`)
                 }
             } catch (error) {
                 console.error('Error:', error);
-                toast.error('An error occurred while processing your request.');
+                alert('An error occurred while processing your request.');
             }
         } else {
-            toast.error('Please fill in all fields.');
+            alert('Please fill in all fields.');
         }
     }
 

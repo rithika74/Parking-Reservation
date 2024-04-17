@@ -214,19 +214,20 @@ select {
 .table table {
     border: 1px solid black;
     /* width: 50%; */
-    font-size: 18px;
+    /* font-size: 18px; */
 }
 
 .table th {
     border: 1px solid black;
     text-align: center;
-    padding: 20px 0px;
+    padding: 10px 15px;
     /* width: 50%; */
 }
 
 .table td {
     border: 1px solid black;
-    padding: 10px 20px;
+    padding: 10px 15px;
+    text-align: center;
 }
 
 /*//////////////////////////////////////////////////*/

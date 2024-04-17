@@ -6,14 +6,12 @@ const Areas = () => {
 
     const navigate = useNavigate()
     const [data, setData] = useState([])
-
-    const handleClick = () => {
-        navigate('/providerpage/addareas')
-    }
+    const id = localStorage.getItem('id');
 
     useEffect(() => {
         const fetchdata = async () => {
-            let response = await axios.get('http://localhost:4000/allarea')
+            console.log('kfkfkk', id);
+            let response = await axios.get(`http://localhost:4000/providedarea/${id}`)
             console.log(response.data);
             setData(response.data)
         }
@@ -21,6 +19,11 @@ const Areas = () => {
     }, [])
 
     console.log(data);
+
+    const handleClick = () => {
+        navigate('/providerpage/addareas')
+    }
+
 
 
     return (

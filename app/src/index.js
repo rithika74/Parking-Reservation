@@ -52,9 +52,9 @@ root.render(
         </Route>
         <Route path='/providerpage' element={<Provider />}>
           <Route index element={<Index />} />
-          <Route path='parkingareas' element={<Areas />} />
+          <Route path='parkingareas/:id' element={<Areas />} />
           <Route path='addareas' element={<AddAreas />} />
-          <Route path='reservations' element={<Reservation />} />
+          <Route path='reservations/:id' element={<Reservation />} />
         </Route>
       </Routes>
     </BrowserRouter>

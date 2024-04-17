@@ -25,7 +25,7 @@ const Reservations = () => {
   return (
     <>
 
-      <section style={{ marginTop: '120px' }} className='reserve'>
+      <section style={{ marginTop: '150px' }} className='reserve'>
         <div>
           <h1>Reservation Details</h1>
           <div className='table'>
