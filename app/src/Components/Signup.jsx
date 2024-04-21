@@ -16,12 +16,18 @@ const Signup = () => {
     })
 
     const handleChange = (event) => {
-        setData({ ...data, [event.target.name]: event.target.value })
+        const { name, value } = event.target;
+        if (name === 'dob') {
+            const formattedDob = value.split('-').reverse().join('-');
+            setData({ ...data, [name]: formattedDob });
+        } else {
+            setData({ ...data, [name]: value });
+        }
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (data.name && data.dob && data.email && data.gender && data.phn && data.address && data.password && data.usertype ) {
+        if (data.name && data.dob && data.email && data.gender && data.phn && data.address && data.password && data.usertype) {
             try {
                 const response = await axios.post('http://localhost:4000/register', data);
                 if (response.data.emailExists) {

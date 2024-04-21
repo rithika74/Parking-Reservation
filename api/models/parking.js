@@ -8,6 +8,9 @@ const parkingScheme = new mongoose.Schema({
     space: {
         type: String
     },
+    cost: {
+        type: String
+    },
     userId: {
         type: mongoose.Types.ObjectId,
         ref: user

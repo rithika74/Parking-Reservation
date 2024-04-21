@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const Slot = require('../models/slot')
+const Parking = require('../models/parking')
 
-router.get('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const id = req.params.id;
-    let response = await Slot.find({ providerId: id }).populate('userId');
+    let response = await Parking.findByIdAndDelete(id);
     console.log(response);
     res.json(response);
 })

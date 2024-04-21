@@ -19,11 +19,21 @@ const ReserveSlot = () => {
   }, [])
 
   console.log(area);
-  console.log('provider',area.userId);
+  console.log('provider', area.userId);
+
+  // const handleChange = (event) => {
+  //   setData({ ...data, [event.target.name]: event.target.value })
+  // }
 
   const handleChange = (event) => {
-    setData({ ...data, [event.target.name]: event.target.value })
-  }
+    const { name, value } = event.target;
+    if (name === 'date') {
+      const formattedDate = value.split('-').reverse().join('-');
+      setData({ ...data, [name]: formattedDate });
+    } else {
+      setData({ ...data, [name]: value });
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,7 +43,7 @@ const ReserveSlot = () => {
         const selectedArea = area.find((item) => item.area === data.area);
         console.log('Selected area object:', selectedArea);
         const userId = localStorage.getItem('id');
-        const reserveData = { ...data, userId: userId, providerId:selectedArea.userId }
+        const reserveData = { ...data, userId: userId, providerId: selectedArea.userId }
         if (selectedArea) {
           const response = await axios.post('http://localhost:4000/reserve', reserveData);
           if (response.data) {

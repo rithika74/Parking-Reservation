@@ -15,7 +15,7 @@ const AddAreas = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (data.area && data.space) {
+        if (data.area && data.space && data.cost) {
             try {
                 const userId = localStorage.getItem('id');
                 const areaData = { ...data, userId: userId };
@@ -45,6 +45,8 @@ const AddAreas = () => {
                         <input type="text" name="area" id="" onChange={handleChange} />
                         <label htmlFor="space">Add Required Space</label>
                         <input type="text" name="space" id="" onChange={handleChange} />
+                        <label htmlFor="cost">Parking Cost Per Hour</label>
+                        <input type="text" name="cost" id="" onChange={handleChange}/>
                         <button>Save</button>
                     </form>
                 </div>

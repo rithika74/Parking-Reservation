@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Reservations = () => {
 
   const [data, setData] = useState([]);
   const { id } = useParams();
-  const userId=localStorage.getItem('id');
+  const userId = localStorage.getItem('id');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +22,16 @@ const Reservations = () => {
   }, [id]);
 
   console.log('kkkk', data);
+
+  const handleClick = async () => {
+    try {
+      let response = await axios.delete(`http://localhost:4000/deletereservation/${id}`);
+      console.log('deleted', response);
+      window.location.reload();
+    } catch (error) {
+      console.error('Error cancelling reservation');
+    }
+  }
 
   return (
     <>
@@ -38,7 +49,7 @@ const Reservations = () => {
                   <th>Time</th>
                   <th>Duration</th>
                   <th>Slot No</th>
-                  <th>Action</th>
+                  <th>Actions</th>
                 </tr>
                 {data.map((item, index) => (
                   <tr key={index}>
@@ -49,8 +60,8 @@ const Reservations = () => {
                     <td>{item.hours}</td>
                     <td>{item.slotno}</td>
                     <td>
-                      <button>Modify</button>
-                      <button>Cancel</button>
+                      <a href="" style={{ marginRight: '10px', color: 'green' }} onClick={() => navigate(`/userpage/update/${item._id}`)}>Update</a>
+                      <a href="" onClick={() => { handleClick(item._id) }}>Cancel</a>
                     </td>
                   </tr>
                 ))}
@@ -58,7 +69,7 @@ const Reservations = () => {
 
             ) : (
               <div>
-                  No reserved slots
+                No reserved slots
               </div>
             )}
           </div>

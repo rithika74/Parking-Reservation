@@ -50,17 +50,10 @@ const Admin = () => {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ms-auto link">
                                 <Nav.Link as={Link} to='/adminpage' onClick={handleNavLinkClick}><li>Home</li></Nav.Link>
-                                {/* <NavDropdown title="Dashboard" id="basic-nav-dropdown">
-                                    <NavDropdown.Item ><li>Parking Locations</li></NavDropdown.Item>
-                                    <NavDropdown.Item ><li>User Details</li></NavDropdown.Item>
-                                    <NavDropdown.Item ><li>Reservations</li></NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item ><li>Reports</li></NavDropdown.Item>
-                                </NavDropdown> */}
                                 <Nav.Link as={Link} to='/adminpage/areas' onClick={handleNavLinkClick}><li>Parking Locations</li></Nav.Link>
-                                <Nav.Link as={Link} to='/adminpage/userdetails' onClick={handleNavLinkClick}><li>User Details</li></Nav.Link>
+                                <Nav.Link as={Link} to='/adminpage/userdetails' onClick={handleNavLinkClick}><li>User</li></Nav.Link>
+                                <Nav.Link as={Link} to='/adminpage/providerdetails' onClick={handleNavLinkClick}><li>Provider</li></Nav.Link>
                                 <Nav.Link as={Link} to='/adminpage/viewreservations' onClick={handleNavLinkClick}><li>Reservations</li></Nav.Link>
-                                <Nav.Link as={Link} to='/adminpage/reports' onClick={handleNavLinkClick}><li>Reports</li></Nav.Link>
                                 <Nav.Link onClick={handleClick}><li>Logout</li></Nav.Link>
                             </Nav>
                         </Navbar.Collapse>

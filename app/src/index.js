@@ -23,6 +23,10 @@ import ParkingArea from './Components/ParkingArea';
 import Areas from './Components/Areas';
 import AddAreas from './Components/AddAreas';
 import Reservation from './Components/Reservation';
+import ParkingSpace from './Components/ParkingSpace';
+import UpdateReservation from './Components/UpdateReservation';
+import UpdateSlot from './Components/UpdateSlot';
+import ProviderDetails from './Components/ProviderDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -38,17 +42,17 @@ root.render(
           <Route index element={<Index />} />
           <Route path='reserve' element={<ReserveSlot />} />
           <Route path='reservations/:id' element={<Reservations />} />
-          <Route path='areas' element={<ParkingArea />} />
+          <Route path='areas' element={<ParkingSpace />} />
           <Route path='slots/:areaId/:slotId' element={<Slots />} />
+          <Route path='update/:id' element={<UpdateReservation />} />
+          <Route path='updateslot/:areaId/:slotId' element={<UpdateSlot />} />
         </Route>
         <Route path='/adminpage' element={<Admin />}>
           <Route index element={<Index />} />
-          {/* <Route path='parkingareas' element={<Areas />} />
-          <Route path='addareas' element={<AddAreas />} /> */}
           <Route path='areas' element={<ParkingArea />} />
           <Route path='viewreservations' element={<UserReservations />} />
           <Route path='userdetails' element={<UserDetails />} />
-          <Route path='reports' element={<Reports />} />
+          <Route path='providerdetails' element={<ProviderDetails />} />
         </Route>
         <Route path='/providerpage' element={<Provider />}>
           <Route index element={<Index />} />

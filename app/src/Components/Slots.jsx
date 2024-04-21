@@ -40,7 +40,7 @@ const Slots = () => {
   const slots = Array.from({ length: space }, (_, index) => `Slot ${index + 1}`);
 
   const handleSlotClick = (slot) => {
-    setSelectedSlot(slot === selectedSlot ? null : slot);
+    setSelectedSlot(selectedSlot === slot ? null : slot);
   };
 
   const handleClick = async (event) => {
@@ -66,6 +66,8 @@ const Slots = () => {
   console.log('Reserved Slot:', data);
   console.log('Reserved Area:', areadata);
 
+
+
   return (
     <section style={{ marginTop: '150px', marginBottom: '50px' }} className='reserve'>
       <div className='hd2'>Select Your Slot</div>
@@ -76,6 +78,9 @@ const Slots = () => {
               key={index}
               className={`slots ${selectedSlot === slot ? 'selected' : ''}`}
               onClick={() => handleSlotClick(slot)}
+              style={{
+                backgroundColor: selectedSlot === slot ? 'green' : data.slot === slot ? 'red' : '',
+              }}
             >
               {slot}
             </div>

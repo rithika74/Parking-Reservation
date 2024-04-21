@@ -31,22 +31,24 @@ const UserReservations = () => {
               <table>
                 <tr>
                   <th>Sl No.</th>
-                  <th>Name</th>
                   <th>Location</th>
                   <th>Date</th>
                   <th>Time</th>
                   <th>Duration</th>
                   <th>Booked Slot</th>
+                  <th>Reserved By</th>
+                  <th>Action</th>
                 </tr>
                 {data.map((item, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td></td>
                     <td>{item.area}</td>
                     <td>{item.date}</td>
                     <td>{item.time}</td>
                     <td>{item.hours}</td>
                     <td>{item.slotno}</td>
+                    <td>{item.userId ? item.userId.name : 'Unknown'}</td>
+                    <td><a href="">Cancel</a></td>
                   </tr>
                 ))}
               </table>

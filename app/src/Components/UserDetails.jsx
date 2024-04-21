@@ -20,25 +20,12 @@ const UserDetails = () => {
 
   console.log('jhj', data);
 
-  const handleVerify = async (userId) => {
-    try {
-      const response = await axios.patch(`http://localhost:4000/userstatus/${userId}`, {
-        status: true
-      });
 
-      setData((prevData) =>
-        prevData.map((item) =>
-          item.id === userId ? { ...item, status: true } : item
-        )
-      );
-
-      console.log('User verified:', response.data);
-
-      window.location.reload();
-    } catch (error) {
-      console.error('Error verifying user:', error);
-    }
-  };
+  const handleDelete=async(id)=>{
+    let response=await axios.delete(`http://localhost:4000/deleteuser/${id}`);
+    console.log(response);
+    window.location.reload();
+  }
 
 
   return (
@@ -69,20 +56,7 @@ const UserDetails = () => {
                   <td>{item.address}</td>
                   <td>{item.phn}</td>
                   <td>{item.usertype}</td>
-                  <td>
-                    {item.usertype === 'provider' && (
-                      <button
-                        style={{
-                          backgroundColor: item.status ? 'green' : 'red',
-                          color: item.status ? 'white' : 'whitesmoke'
-                        }}
-                        onClick={() => handleVerify(item._id)}
-                        disabled={item.status}
-                      >
-                        {item.status ? 'Verified' : 'Verify'}
-                      </button>
-                    )}
-                  </td>
+                  <td><a href="" onClick={()=>{handleDelete(item._id)}}>Delete</a></td>
                 </tr>
               ))}
             </table>

@@ -24,8 +24,8 @@
 
 .link li {
     color: orange;
-    font-size: 18px;
-    margin-right: 10px;
+    font-size: 16px;
+    /* margin-right: 5px; */
 }
 
 .image-container {
@@ -123,10 +123,9 @@ select {
 
 .btn {
     width: 70%;
-    padding: 10px 10px;
+    padding: 10px ;
     border-radius: 5px;
     background-color: orange;
-    font-size: 20px;
     color: black;
     border: none;
 }
@@ -163,14 +162,13 @@ select {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    width: 100%;
+    width: 90%;
 }
 
 .reserve form input,
 select {
     width: 100%;
-    /* margin-bottom: 15px; */
-    margin: 0px 15px 15px 15px;
+    margin: 0px 20px 15px 20px;
     padding: 10px 10px;
     border-radius: 5px;
     outline: none;
@@ -203,6 +201,8 @@ select {
     background-color: rgb(192, 127, 7);
 }
 
+
+
 /*///////////////////////////////////////////////////////*/
 
 .table {
@@ -213,22 +213,26 @@ select {
 
 .table table {
     border: 1px solid black;
-    /* width: 50%; */
-    /* font-size: 18px; */
+    font-size: 14px;
 }
 
 .table th {
     border: 1px solid black;
     text-align: center;
-    padding: 10px 15px;
-    /* width: 50%; */
 }
 
 .table td {
     border: 1px solid black;
-    padding: 10px 15px;
     text-align: center;
 }
+.table td a{
+    color: red;
+    font-weight: 500;
+}
+/* .table td a:hover{
+    color: rgb(157, 44, 44);
+} */
+
 
 /*//////////////////////////////////////////////////*/
 
@@ -311,10 +315,19 @@ select {
     transition: background-color 0.3s ease;
 }
 
-.slots.selected {
+.selected {
     background-color: green;
     color: white;
   }
+  
+  .selected.clicked {
+    background-color: red;
+  }
+
+/* .slots.selected {
+    background-color: green;
+    color: white;
+  } */
 
 .hd2 {
     text-align: center;
