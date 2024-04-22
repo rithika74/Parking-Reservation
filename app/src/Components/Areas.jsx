@@ -42,7 +42,8 @@ const Areas = () => {
                     <div>
                         <button onClick={handleClick}>Add New</button>
                     </div>
-                    <div className='table'>
+                </div>
+                {/* <div className='table'>
                         {data.length > 0 ? (
                             <table>
                                 <tr>
@@ -67,8 +68,42 @@ const Areas = () => {
                         ) : (
                             <div>No Available Space</div>
                         )}
-                    </div>
+                    </div> */}
+
+
+                <div className='tablediv'>
+                    {data.length > 0 ? (
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sl.No</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Space</th>
+                                    <th scope="col">Cost <br /> (per hr)</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{index + 1}</td>
+                                        <td>{item.area}</td>
+                                        <td>{item.space}</td>
+                                        <td>{item.cost}</td>
+                                        <td>
+                                            <a href="" onClick={() => { handleDelete(item._id) }}>Remove</a>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    ) : (
+                        <div>No Available Space</div>
+                    )}
                 </div>
+
+
+
             </section>
 
         </>

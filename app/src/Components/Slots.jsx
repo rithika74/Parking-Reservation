@@ -6,9 +6,9 @@ const Slots = () => {
 
   const navigate = useNavigate();
   const { areaId, slotId } = useParams();
-  const [areadata, setareaData] = useState([]);
-  const [data, setData] = useState([])
-  const [selectedSlot, setSelectedSlot] = useState([]);
+  const [areadata, setareaData] = useState({});
+  const [data, setData] = useState({})
+  const [selectedSlot, setSelectedSlot] = useState('');
   console.log('areaid', areaId);
   console.log('slotid', slotId);
 
@@ -97,3 +97,6 @@ const Slots = () => {
 };
 
 export default Slots;
+
+
+

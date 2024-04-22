@@ -17,7 +17,6 @@ import UserReservations from './Components/UserReservations';
 import UserDetails from './Components/UserDetails';
 import Login from './Components/Login';
 import Provider from './Components/Provider';
-import Reports from './Components/Reports';
 import Slots from './Components/Slots';
 import ParkingArea from './Components/ParkingArea';
 import Areas from './Components/Areas';

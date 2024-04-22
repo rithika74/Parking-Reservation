@@ -21,10 +21,6 @@ const ReserveSlot = () => {
   console.log(area);
   console.log('provider', area.userId);
 
-  // const handleChange = (event) => {
-  //   setData({ ...data, [event.target.name]: event.target.value })
-  // }
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === 'date') {
@@ -39,11 +35,14 @@ const ReserveSlot = () => {
     event.preventDefault();
     if (data.area && data.date && data.time && data.hours) {
       try {
-        console.log('Selected area:', data.area);
         const selectedArea = area.find((item) => item.area === data.area);
-        console.log('Selected area object:', selectedArea);
         const userId = localStorage.getItem('id');
-        const reserveData = { ...data, userId: userId, providerId: selectedArea.userId }
+        const reserveData = {
+          ...data,
+          userId: userId,
+          providerId: selectedArea.userId,
+          totalcost: calculateCost(data.hours, selectedArea.cost)
+        };
         if (selectedArea) {
           const response = await axios.post('http://localhost:4000/reserve', reserveData);
           if (response.data) {
@@ -62,6 +61,14 @@ const ReserveSlot = () => {
       alert('Please fill in all fields.');
     }
   }
+
+  const calculateCost = (hours, costPerHour) => {
+    const parsedHours = parseInt(hours);
+    const totalCost = parsedHours * costPerHour;
+    return totalCost;
+  };
+
+  const today = new Date().toISOString().split('T')[0];
 
   return (
     <>
@@ -85,7 +92,7 @@ const ReserveSlot = () => {
 
                 <div className=' d-flex  flex-column '>
                   <label htmlFor="date">Select Date</label>
-                  <input type="date" name="date" id="" onChange={handleChange} />
+                  <input type="date" name="date" id="" min={today} onChange={handleChange} />
                 </div>
 
                 <div className=' d-flex  flex-column '>

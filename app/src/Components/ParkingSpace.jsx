@@ -20,7 +20,7 @@ const ParkingSpace = () => {
         <>
 
             <section style={{ marginTop: '200px' }}>
-                <div className='table'>
+                {/* <div className='table'>
                     {data.length > 0 ? (
                         <table>
                             <tr>
@@ -41,7 +41,37 @@ const ParkingSpace = () => {
                     ) : (
                         <div>No Available Space</div>
                     )}
+                </div> */}
+
+                <div className='tablediv' style={{ width: '100%' }}>
+                    {data.length > 0 ? (
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sl.No</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Space</th>
+                                    <th scope="col">Cost (per hr)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{index + 1}</td>
+                                        <td>{item.area}</td>
+                                        <td>{item.space}</td>
+                                        <td>{item.cost}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    ) : (
+                        <div>No Available Space</div>
+                    )}
                 </div>
+
+
+
             </section>
 
 

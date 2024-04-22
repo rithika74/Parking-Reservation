@@ -28,7 +28,23 @@ const Signup = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (data.name && data.dob && data.email && data.gender && data.phn && data.address && data.password && data.usertype) {
+
+            const isValidPhoneNumber = /^\d{10}$/.test(data.phn);
+            if (!isValidPhoneNumber) {
+                alert('Please enter a valid 10-digit phone number.');
+                return;
+            }
+
             try {
+                const dob = new Date(data.dob);
+                const today = new Date();
+                const age = today.getFullYear() - dob.getFullYear();
+
+                if (age < 18) {
+                    alert('You must be at least 18 years old to register.');
+                    return;
+                }
+
                 const response = await axios.post('http://localhost:4000/register', data);
                 if (response.data.emailExists) {
                     alert('Email already exists.');

@@ -53,7 +53,7 @@ const ProviderDetails = () => {
         <>
 
             <section style={{ marginTop: '200px' }}>
-                <div className='table'>
+                {/* <div className='table'>
                     {data.length > 0 ? (
                         <table>
                             <tr>
@@ -97,7 +97,61 @@ const ProviderDetails = () => {
                     ) : (
                         <div>No Users Found</div>
                     )}
+                </div> */}
+
+
+                <div className='tablediv'>
+                    {data.length > 0 ? (
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">User Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Date of Birth</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Phone Number</th>
+                                    <th scope="col">Usertype</th>
+                                    <th scope="col">Verification</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{index + 1}</td>
+                                        <td>{item.name}</td>
+                                        <td>{item.dob}</td>
+                                        <td>{item.email}</td>
+                                        <td>{item.gender}</td>
+                                        <td>{item.address}</td>
+                                        <td>{item.phn}</td>
+                                        <td>{item.usertype}</td>
+                                        <td>
+                                            <button
+                                                style={{
+                                                    backgroundColor: item.status ? 'green' : 'red',
+                                                    color: item.status ? 'white' : 'whitesmoke',
+                                                    border:'none'
+                                                }}
+                                                onClick={() => handleVerify(item._id)}
+                                                disabled={item.status}
+                                            >
+                                                {item.status ? 'Verified' : 'Verify'}
+                                            </button>
+                                        </td>
+                                        <td><a href="" onClick={() => { handleDelete(item._id) }}>Delete</a></td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    ) : (
+                        <div>No Providers Found</div>
+                    )}
                 </div>
+
+
             </section>
 
 

@@ -21,6 +21,9 @@ const slotScheme = new mongoose.Schema({
     providerId: {
         type: String
     },
+    totalcost: {
+        type: String
+    },
     userId: {
         type: mongoose.Types.ObjectId,
         ref: user

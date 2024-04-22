@@ -205,33 +205,15 @@ select {
 
 /*///////////////////////////////////////////////////////*/
 
-.table {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.tablediv{
+    /* margin: 0px 200px; */
 }
-
-.table table {
-    border: 1px solid black;
-    font-size: 14px;
-}
-
-.table th {
-    border: 1px solid black;
-    text-align: center;
-}
-
-.table td {
-    border: 1px solid black;
+.table{
     text-align: center;
 }
 .table td a{
     color: red;
-    font-weight: 500;
 }
-/* .table td a:hover{
-    color: rgb(157, 44, 44);
-} */
 
 
 /*//////////////////////////////////////////////////*/
