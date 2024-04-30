@@ -20,6 +20,16 @@ const UserReservations = () => {
 
   console.log('kkkk', data);
 
+  const handleClick = async (id) => {
+    try {
+      let response = await axios.delete(`http://localhost:4000/deletereservation/${id}`);
+      console.log('deleted', response);
+      window.location.reload();
+    } catch (error) {
+      console.error('Error cancelling reservation');
+    }
+  }
+
   return (
     <>
 
@@ -87,7 +97,7 @@ const UserReservations = () => {
                     <td>{item.hours}</td>
                     <td>{item.slotno}</td>
                     <td>{item.userId ? item.userId.name : 'Unknown'}</td>
-                    <td><a href="">Cancel</a></td>
+                    <td><a href="" onClick={() => { handleClick(item._id) }}>Cancel</a></td>
                   </tr>
                 ))}
               </tbody>
