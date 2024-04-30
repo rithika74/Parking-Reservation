@@ -4,11 +4,10 @@ const Slot = require('../models/slot');
 
 router.put('/:id', async (req, res) => {
     const id = req.params.id;
-    console.log('idddddd', id);
     const updatedData = req.body;
 
     try {
-        const updatedSlot = await Slot.findByIdAndUpdate(id, updatedData, { new: true });
+        const updatedSlot = await Slot.findByIdAndUpdate(id, { ...updatedData, status: true }, { new: true });
 
         if (!updatedSlot) {
             return res.status(404).json({ error: 'Slot not found' });

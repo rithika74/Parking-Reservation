@@ -52,7 +52,7 @@ const ProviderDetails = () => {
     return (
         <>
 
-            <section style={{ marginTop: '200px' }}>
+            <section className='section'>
                 {/* <div className='table'>
                     {data.length > 0 ? (
                         <table>
@@ -147,7 +147,7 @@ const ProviderDetails = () => {
                             </tbody>
                         </table>
                     ) : (
-                        <div>No Providers Found</div>
+                        <div className=' text-center '>No Providers Found</div>
                     )}
                 </div>
 

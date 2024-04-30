@@ -5,7 +5,6 @@ import axios from 'axios';
 const Reservation = () => {
 
   const [data, setData] = useState([]);
-  // const { id } = useParams();
   const providerId = localStorage.getItem('id');
 
   useEffect(() => {
@@ -36,10 +35,10 @@ const Reservation = () => {
   return (
     <>
 
-      <section style={{ marginTop: '150px' }} className='reserve'>
-        <div>
+      <section className='section'>
+        {/* <div>
           <h1>Reservation Details</h1>
-        </div>
+        </div> */}
         {/* <div className='table'>
             {data.length > 0 ? (
               <table>
@@ -109,7 +108,7 @@ const Reservation = () => {
               </tbody>
             </table>
           ) : (
-            <div>No reserved slots</div>
+            <div className=' text-center '>No reserved slots</div>
           )}
         </div>
 

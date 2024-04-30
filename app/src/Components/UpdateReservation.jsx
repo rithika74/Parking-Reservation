@@ -25,19 +25,41 @@ const UpdateReservation = () => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         if (name === 'date') {
-            const formattedDate = value.split('-').reverse().join('-');
-            setData({ ...data, [name]: formattedDate });
+            // No need to reverse the date format when updating the state
+            setData({ ...data, [name]: value });
         } else {
             setData({ ...data, [name]: value });
         }
+
+        if (name === 'hours') {
+            const selectedArea = area.find((item) => item.area === data.area);
+            if (selectedArea) {
+                const totalCost = calculateCost(value, selectedArea.cost);
+                setData({ ...data, totalcost: totalCost });
+            }
+        }
     };
+
+
+    const calculateCost = (hours, costPerHour) => {
+        const parsedHours = parseInt(hours);
+        const totalCost = parsedHours * costPerHour;
+        return totalCost;
+    };
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            // Format the date before sending it to the server
+            const formattedDate = data.date.split('-').reverse().join('-');
+
             const selectedArea = area.find((item) => item.area === data.area);
             if (selectedArea) {
-                const response = await axios.put(`http://localhost:4000/updatereservation/${id}`, data);
+                const response = await axios.put(`http://localhost:4000/updatereservation/${id}`, {
+                    ...data,
+                    date: formattedDate // Use the formatted date
+                });
                 if (response.data) {
                     console.log('Updated slot:', response.data);
                     navigate(`/userpage/updateslot/${selectedArea._id}/${response.data._id}`);
@@ -48,6 +70,7 @@ const UpdateReservation = () => {
             console.log('Updation failed', error);
         }
     };
+
 
     return (
         <>

@@ -31,7 +31,7 @@ const UserDetails = () => {
   return (
     <>
 
-      <section style={{ marginTop: '200px' }}>
+      <section className='section'>
         {/* <div className='table'>
           {data.length > 0 ? (
             <table>
@@ -98,7 +98,7 @@ const UserDetails = () => {
               </tbody>
             </table>
           ) : (
-            <div>No Users Found</div>
+            <div className=' text-center '>No Users Found</div>
           )}
         </div>
 

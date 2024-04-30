@@ -15,6 +15,7 @@ const reserveRoute = require('./routes/reserve');
 const areaRoute = require('./routes/reservedarea');
 const addslotRoute = require('./routes/addslot');
 const slotsRoute = require('./routes/slots');
+const slotRoute=require('./routes/slot');
 const userstatusRoute = require('./routes/userstatus');
 const providedareaRoute = require('./routes/providerareas');
 const reservationsRoute = require('./routes/reservations');
@@ -24,6 +25,9 @@ const updatereservationRoute = require('./routes/updatereservation');
 const deletereservationRoute = require('./routes/deletereservation');
 const deleteuserRoute = require('./routes/deleteuser');
 const deleteparkingRoute = require('./routes/deleteparking');
+// const checkreservationRoute = require('./routes/checkreservation');
+const updatedspaceRoute = require('./routes/updatespace');
+const areaviewRoute=require('./routes/area');
 
 mongoose.connect('mongodb://127.0.0.1:27017/parking')
     .then(() => console.log('Connected!'));
@@ -45,6 +49,7 @@ app.use('/reserve', reserveRoute);
 app.use('/reservedarea', areaRoute);
 app.use('/addslot', addslotRoute);
 app.use('/slots', slotsRoute);
+app.use('/slot',slotRoute);
 app.use('/userstatus', userstatusRoute);
 app.use('/providedarea', providedareaRoute);
 app.use('/reservations', reservationsRoute);
@@ -54,6 +59,9 @@ app.use('/updatereservation', updatereservationRoute);
 app.use('/deletereservation', deletereservationRoute);
 app.use('/deleteuser', deleteuserRoute);
 app.use('/deleteparking', deleteparkingRoute);
+// app.use('/checkreservation', checkreservationRoute);
+app.use('/updatespace', updatedspaceRoute);
+app.use('/areaview',areaviewRoute);
 
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`);

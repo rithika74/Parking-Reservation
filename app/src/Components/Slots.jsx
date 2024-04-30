@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const Slots = () => {
-
   const navigate = useNavigate();
   const { areaId, slotId } = useParams();
   const [areadata, setareaData] = useState({});
-  const [data, setData] = useState({})
+  const [data, setData] = useState({});
   const [selectedSlot, setSelectedSlot] = useState('');
-  console.log('areaid', areaId);
-  console.log('slotid', slotId);
+  const [existingReservations, setExistingReservations] = useState([]);
+
+  console.log('slotId', slotId);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +24,7 @@ const Slots = () => {
     fetchData();
   }, [slotId]);
 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,23 +37,63 @@ const Slots = () => {
     fetchData();
   }, [areaId]);
 
+  useEffect(() => {
+    const fetchReservations = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/reservations');
+        setExistingReservations(response.data);
+        console.log('existingReservations:', response.data); // Add this line
+      } catch (error) {
+        console.error('Error fetching reservations:', error);
+      }
+    };
+    fetchReservations();
+  }, []);
+
+  console.log('existingReservations', existingReservations);
+  console.log('data', data);
+
+  const { area, date, time } = data;
+  console.log('area', area);
+  console.log('date:', date);
+  console.log('time:', time);
+  console.log('areaId:', areaId);
+
+  const reservationsInSameSlot = existingReservations.filter(reservation => {
+    return (
+      reservation.area === area &&
+      reservation.areaId === areaId &&
+      reservation.date === date &&
+      reservation.time === time
+    );
+  });
+
+  console.log('reservationsInSameSlot', reservationsInSameSlot);
+
+
   const space = parseInt(areadata?.space) || 0;
   const slots = Array.from({ length: space }, (_, index) => `Slot ${index + 1}`);
 
+  const slotsStatusTrue = reservationsInSameSlot.filter(reservation => reservation.status === true);
+  console.log('Slots with status true:', slotsStatusTrue);
+
+
   const handleSlotClick = (slot) => {
-    setSelectedSlot(selectedSlot === slot ? null : slot);
+    if (existingReservations.some(reservation => reservation.slotno === slot && reservation.area === area)) {
+      return;
+    }
+    setSelectedSlot(selectedSlot === slot ? '' : slot);
   };
 
   const handleClick = async (event) => {
     event.preventDefault();
     if (selectedSlot && data) {
-      const updatedData = { ...data, slot: selectedSlot };
       console.log('dataaa', { slot: selectedSlot });
       try {
         const response = await axios.put(`http://localhost:4000/addslot/${slotId}`, { slotno: selectedSlot });
         console.log('Server response:', response.data);
         alert('Slot reserved successfully');
-        navigate(`/userpage/reservations/${response.data._id}`)
+        navigate(`/userpage/reservations/${response.data.userId}`)
       } catch (error) {
         console.error('Error reserving slot:', error);
         alert('Error reserving slot');
@@ -61,12 +102,6 @@ const Slots = () => {
       alert('No slot selected');
     }
   };
-
-  console.log('Selected Slot:', selectedSlot);
-  console.log('Reserved Slot:', data);
-  console.log('Reserved Area:', areadata);
-
-
 
   return (
     <section style={{ marginTop: '150px', marginBottom: '50px' }} className='reserve'>
@@ -79,8 +114,11 @@ const Slots = () => {
               className={`slots ${selectedSlot === slot ? 'selected' : ''}`}
               onClick={() => handleSlotClick(slot)}
               style={{
-                backgroundColor: selectedSlot === slot ? 'green' : data.slot === slot ? 'red' : '',
+                backgroundColor: selectedSlot === slot ? 'green' : slotsStatusTrue.some(reservation => reservation.slotno === slot ) ? 'red' : '',
+                cursor: slotsStatusTrue.some(reservation => reservation.slotno === slot ) ? 'not-allowed' : 'pointer',
+                opacity: slotsStatusTrue.some(reservation => reservation.slotno === slot ) ? 0.5 : 1
               }}
+              disabled={slotsStatusTrue.some(reservation => reservation.slotno === slot)}
             >
               {slot}
             </div>
@@ -97,6 +135,5 @@ const Slots = () => {
 };
 
 export default Slots;
-
 
 

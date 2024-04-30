@@ -41,10 +41,15 @@ const ReserveSlot = () => {
           ...data,
           userId: userId,
           providerId: selectedArea.userId,
-          totalcost: calculateCost(data.hours, selectedArea.cost)
+          areaId: selectedArea._id,
+          totalcost: calculateCost(data.hours, selectedArea.cost),
+          expireTime: calculateExpiration(data.date, data.time, data.hours)
         };
+        console.log('reservationssss', reserveData);
         if (selectedArea) {
+
           const response = await axios.post('http://localhost:4000/reserve', reserveData);
+
           if (response.data) {
             setData('');
             console.log('success');
@@ -66,6 +71,18 @@ const ReserveSlot = () => {
     const parsedHours = parseInt(hours);
     const totalCost = parsedHours * costPerHour;
     return totalCost;
+  };
+
+  const calculateExpiration = (date, time, hours) => {
+    const formattedDate = date.split('-').reverse().join('-');
+    const dateTimeString = `${formattedDate}T${time}:00`;
+    const dateTime = new Date(dateTimeString);
+    if (isNaN(dateTime.getTime())) {
+      console.error('Invalid date or time:', dateTimeString);
+      return null;
+    }
+    const expirationTime = new Date(dateTime.getTime() + (parseInt(hours) * 60 * 60 * 1000));
+    return expirationTime.toLocaleString();
   };
 
   const today = new Date().toISOString().split('T')[0];

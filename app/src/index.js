@@ -16,7 +16,6 @@ import Reservations from './Components/Reservations';
 import UserReservations from './Components/UserReservations';
 import UserDetails from './Components/UserDetails';
 import Login from './Components/Login';
-import Provider from './Components/Provider';
 import Slots from './Components/Slots';
 import ParkingArea from './Components/ParkingArea';
 import Areas from './Components/Areas';
@@ -26,6 +25,8 @@ import ParkingSpace from './Components/ParkingSpace';
 import UpdateReservation from './Components/UpdateReservation';
 import UpdateSlot from './Components/UpdateSlot';
 import ProviderDetails from './Components/ProviderDetails';
+import Providers from './Components/Providers';
+import UpdateSpace from './Components/UpdateSpace';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -40,7 +41,7 @@ root.render(
         <Route path='/userpage' element={<User />}>
           <Route index element={<Index />} />
           <Route path='reserve' element={<ReserveSlot />} />
-          <Route path='reservations/:id' element={<Reservations />} />
+          <Route path='reservations/:userId' element={<Reservations />} />
           <Route path='areas' element={<ParkingSpace />} />
           <Route path='slots/:areaId/:slotId' element={<Slots />} />
           <Route path='update/:id' element={<UpdateReservation />} />
@@ -53,11 +54,12 @@ root.render(
           <Route path='userdetails' element={<UserDetails />} />
           <Route path='providerdetails' element={<ProviderDetails />} />
         </Route>
-        <Route path='/providerpage' element={<Provider />}>
+        <Route path='/providerpage' element={<Providers />}>
           <Route index element={<Index />} />
           <Route path='parkingareas/:id' element={<Areas />} />
           <Route path='addareas' element={<AddAreas />} />
           <Route path='reservations/:id' element={<Reservation />} />
+          <Route path='updatespace/:id' element={<UpdateSpace />} />
         </Route>
       </Routes>
     </BrowserRouter>

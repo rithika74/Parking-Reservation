@@ -31,7 +31,7 @@ const ParkingArea = () => {
     return (
         <>
 
-            <section style={{ marginTop: '200px' }}>
+            <section className='section'>
                 {/* <div className='table'>
                     {data.length > 0 ? (
                         <table>
@@ -89,7 +89,7 @@ const ParkingArea = () => {
                             </tbody>
                         </table>
                     ) : (
-                        <div>No Available Space</div>
+                        <div className=' text-center '>No Available Space</div>
                     )}
                 </div>
 

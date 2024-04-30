@@ -19,7 +19,7 @@ const ParkingSpace = () => {
     return (
         <>
 
-            <section style={{ marginTop: '200px' }}>
+            <section className='section'>
                 {/* <div className='table'>
                     {data.length > 0 ? (
                         <table>
@@ -43,7 +43,7 @@ const ParkingSpace = () => {
                     )}
                 </div> */}
 
-                <div className='tablediv' style={{ width: '100%' }}>
+                <div className='tablediv' style={{ width: '100%'  }}>
                     {data.length > 0 ? (
                         <table className="table">
                             <thead>
@@ -66,7 +66,7 @@ const ParkingSpace = () => {
                             </tbody>
                         </table>
                     ) : (
-                        <div>No Available Space</div>
+                        <div className=' text-center '>No Available Space</div>
                     )}
                 </div>
 
@@ -81,3 +81,6 @@ const ParkingSpace = () => {
 }
 
 export default ParkingSpace
+
+
+

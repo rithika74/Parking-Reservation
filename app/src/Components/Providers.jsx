@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import logo from '../Images/logo.png'
 
-const Provider = () => {
+const Providers = () => {
 
     const [isNavExpanded, setIsNavExpanded] = useState(false);
     const navigate = useNavigate()
@@ -65,4 +65,4 @@ const Provider = () => {
     )
 }
 
-export default Provider
+export default Providers

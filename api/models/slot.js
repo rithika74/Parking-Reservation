@@ -28,9 +28,15 @@ const slotScheme = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: user
     },
-    parking: {
+    areaId: {
         type: mongoose.Types.ObjectId,
         ref: parking
+    },
+    status: {
+        type: Boolean
+    },
+    expireTime:{
+        type:String
     }
 })
 

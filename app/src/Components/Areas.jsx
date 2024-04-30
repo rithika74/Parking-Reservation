@@ -34,10 +34,11 @@ const Areas = () => {
         }
     }
 
+
     return (
         <>
 
-            <section style={{ marginTop: '200px' }}>
+            <section className='section'>
                 <div className='area'>
                     <div>
                         <button onClick={handleClick}>Add New</button>
@@ -79,7 +80,7 @@ const Areas = () => {
                                     <th scope="col">Sl.No</th>
                                     <th scope="col">Location</th>
                                     <th scope="col">Space</th>
-                                    <th scope="col">Cost <br /> (per hr)</th>
+                                    <th scope="col">Cost (per hr)</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -91,6 +92,7 @@ const Areas = () => {
                                         <td>{item.space}</td>
                                         <td>{item.cost}</td>
                                         <td>
+                                            <a href="" style={{ marginRight: '10px', color: 'green' }} onClick={()=>{navigate(`/providerpage/updatespace/${item._id}`)}}>Update</a>
                                             <a href="" onClick={() => { handleDelete(item._id) }}>Remove</a>
                                         </td>
                                     </tr>
@@ -98,7 +100,7 @@ const Areas = () => {
                             </tbody>
                         </table>
                     ) : (
-                        <div>No Available Space</div>
+                        <div className=' text-center '>No Available Space</div>
                     )}
                 </div>
 
@@ -111,3 +113,6 @@ const Areas = () => {
 }
 
 export default Areas
+
+
+

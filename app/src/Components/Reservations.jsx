@@ -9,37 +9,57 @@ const Reservations = () => {
   const userId = localStorage.getItem('id');
   const navigate = useNavigate();
 
+  console.log('id:', id);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/slots/${userId}`);
+        const response = await axios.get(`http://localhost:4000/slot/${userId}`);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error)
       }
     };
     fetchData();
-  }, [id]);
+  }, [userId]);
 
   console.log('kkkk', data);
 
-  const handleClick = async () => {
+  const currentTime = new Date().toLocaleString();
+
+  const compare = data.filter(reservation => {
+    return (
+      reservation.expireTime > currentTime
+    );
+  })
+
+  console.log('compare',compare);
+
+  const handleClick = async (id) => {
     try {
       let response = await axios.delete(`http://localhost:4000/deletereservation/${id}`);
       console.log('deleted', response);
-      window.location.reload();
+      setData(data.filter(item => item.id !== id));
     } catch (error) {
-      console.error('Error cancelling reservation');
+      console.error('Error cancelling reservation:', error);
     }
   }
+
+  useEffect(() => {
+    compare.forEach(reservation => {
+      handleClick(reservation._id);
+    });
+  }, [compare]);
+
+
 
   return (
     <>
 
-      <section style={{ marginTop: '150px' }} className='reserve'>
-        <div>
+      <section className='section'>
+        {/* <div>
           <h1>Reservation Details</h1>
-        </div>
+        </div> */}
         {/* <div className='table'>
             {data.length > 0 ? (
               <table>
@@ -78,7 +98,7 @@ const Reservations = () => {
           </div> */}
 
 
-        <div className='tablediv' style={{ width: '100%', marginTop: '20px' }}>
+        <div className='tablediv' >
           {data.length > 0 ? (
             <table className="table">
               <thead>
@@ -90,7 +110,7 @@ const Reservations = () => {
                   <th scope="col">Duration</th>
                   <th scope="col">Slot No</th>
                   <th scope="col">Total Cost</th>
-                  <th scope="col">Actions</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -104,7 +124,7 @@ const Reservations = () => {
                     <td>{item.slotno}</td>
                     <td>{item.totalcost}</td>
                     <td>
-                      <a href="" style={{ marginRight: '10px', color: 'green' }} onClick={() => navigate(`/userpage/update/${item._id}`)}>Update</a>
+                      {/* <a href="" style={{ marginRight: '10px', color: 'green' }} onClick={() => navigate(`/userpage/update/${item._id}`)}>Update</a> */}
                       <a href="" onClick={() => { handleClick(item._id) }}>Cancel</a>
                     </td>
                   </tr>
@@ -112,7 +132,7 @@ const Reservations = () => {
               </tbody>
             </table>
           ) : (
-            <div>No reserved slots</div>
+            <div className=' text-center'>No reserved slots</div>
           )}
         </div>
 
@@ -126,3 +146,5 @@ const Reservations = () => {
 }
 
 export default Reservations
+
+

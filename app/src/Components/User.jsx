@@ -51,7 +51,7 @@ const User = () => {
                                 <Nav.Link as={Link} to='/userpage' onClick={handleNavLinkClick}><li>Home</li></Nav.Link>
                                 <Nav.Link as={Link} to='/userpage/areas' onClick={handleNavLinkClick}><li>Parking Areas</li></Nav.Link>
                                 <Nav.Link as={Link} to='/userpage/reserve' onClick={handleNavLinkClick}><li>Reserve Slot</li></Nav.Link>
-                                <Nav.Link as={Link} to='/userpage/reservations/:id' onClick={handleNavLinkClick}><li>View Reservations</li></Nav.Link>
+                                <Nav.Link as={Link} to='/userpage/reservations/:userId' onClick={handleNavLinkClick}><li>View Reservations</li></Nav.Link>
                                 <Nav.Link onClick={handleClick}><li>Logout</li></Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
