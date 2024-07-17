@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { url } from '../url';
 
 const UserDetails = () => {
 
@@ -8,7 +9,7 @@ const UserDetails = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        let response = await axios.get('http://localhost:4000/users')
+        let response = await axios.get(`${url}/users`)
         console.log(response.data);
         setData(response.data)
       } catch (error) {
@@ -22,7 +23,7 @@ const UserDetails = () => {
 
 
   const handleDelete = async (id) => {
-    let response = await axios.delete(`http://localhost:4000/deleteuser/${id}`);
+    let response = await axios.delete(`${url}/deleteuser/${id}`);
     console.log(response);
     window.location.reload();
   }

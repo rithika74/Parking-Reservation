@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
+import { url } from '../url'
 
 const UpdateSpace = () => {
 
@@ -11,7 +12,7 @@ const UpdateSpace = () => {
     useEffect(() => {
         let fetchdata = async () => {
             try {
-                let response = await axios.get(`http://localhost:4000/areaview/${id}`);
+                let response = await axios.get(`${url}/areaview/${id}`);
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error)
@@ -30,7 +31,7 @@ const UpdateSpace = () => {
         event.preventDefault();
         try {
             const userId = localStorage.getItem('id');
-            let response=await axios.put(`http://localhost:4000/updatespace/${id}`,data);
+            let response=await axios.put(`${url}/updatespace/${id}`,data);
             if (response.data) {
                 navigate(`/providerpage/parkingareas/${userId}`)
             }

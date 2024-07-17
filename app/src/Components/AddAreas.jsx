@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
+import { url } from '../url'
 
 const AddAreas = () => {
 
@@ -19,7 +20,7 @@ const AddAreas = () => {
             try {
                 const userId = localStorage.getItem('id');
                 const areaData = { ...data, userId: userId };
-                const response = await axios.post('http://localhost:4000/addarea', areaData)
+                const response = await axios.post(`${url}/addarea`, areaData)
                 if (response.data) {
                     setData('')
                     console.log('success');

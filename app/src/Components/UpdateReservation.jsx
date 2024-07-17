@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { url } from '../url';
 
 const UpdateReservation = () => {
     const [data, setData] = useState({});
@@ -11,9 +12,9 @@ const UpdateReservation = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/userreservation/${id}`);
+                const response = await axios.get(`${url}/userreservation/${id}`);
                 setData(response.data);
-                const areaResponse = await axios.get('http://localhost:4000/allarea');
+                const areaResponse = await axios.get(`${url}/allarea`);
                 setArea(areaResponse.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -56,7 +57,7 @@ const UpdateReservation = () => {
 
             const selectedArea = area.find((item) => item.area === data.area);
             if (selectedArea) {
-                const response = await axios.put(`http://localhost:4000/updatereservation/${id}`, {
+                const response = await axios.put(`${url}/updatereservation/${id}`, {
                     ...data,
                     date: formattedDate // Use the formatted date
                 });

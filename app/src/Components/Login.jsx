@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import { url } from '../url';
 
 const Login = () => {
 
@@ -45,7 +46,7 @@ const Login = () => {
         }
         else {
             try {
-                let response = await axios.post('http://localhost:4000/login', data)
+                let response = await axios.post(`${url}/login`, data)
                 console.log('gggg', response.data);
                 const token = response.data.token;
                 console.log(token);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { url } from '../url';
 
 const Reservation = () => {
 
@@ -10,7 +11,7 @@ const Reservation = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/providerreserve/${providerId}`);
+        const response = await axios.get(`${url}/providerreserve/${providerId}`);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error)
@@ -23,7 +24,7 @@ const Reservation = () => {
 
   const handleClick = async (id) => {
     try {
-      let response = await axios.delete(`http://localhost:4000/deletereservation/${id}`);
+      let response = await axios.delete(`${url}/deletereservation/${id}`);
       console.log('deleted', response);
       window.location.reload();
     } catch (error) {

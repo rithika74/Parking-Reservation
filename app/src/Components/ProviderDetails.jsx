@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { url } from '../url';
 
 const ProviderDetails = () => {
 
@@ -8,7 +9,7 @@ const ProviderDetails = () => {
     useEffect(() => {
         const fetchdata = async () => {
             try {
-                let response = await axios.get('http://localhost:4000/providers')
+                let response = await axios.get(`${url}/providers`)
                 console.log(response.data);
                 setData(response.data)
             } catch (error) {
@@ -22,7 +23,7 @@ const ProviderDetails = () => {
 
     const handleVerify = async (userId) => {
         try {
-            const response = await axios.patch(`http://localhost:4000/userstatus/${userId}`, {
+            const response = await axios.patch(`${url}/userstatus/${userId}`, {
                 status: true
             });
 
@@ -42,7 +43,7 @@ const ProviderDetails = () => {
 
 
     const handleDelete = async (id) => {
-        let response = await axios.delete(`http://localhost:4000/deleteuser/${id}`);
+        let response = await axios.delete(`${url}/deleteuser/${id}`);
         console.log(response);
         window.location.reload();
     }

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { url } from '../url'
 
 const Areas = () => {
 
@@ -11,7 +12,7 @@ const Areas = () => {
     useEffect(() => {
         const fetchdata = async () => {
             console.log('kfkfkk', id);
-            let response = await axios.get(`http://localhost:4000/providedarea/${id}`)
+            let response = await axios.get(`${url}/providedarea/${id}`)
             console.log(response.data);
             setData(response.data)
         }
@@ -26,7 +27,7 @@ const Areas = () => {
 
     const handleDelete = async (id) => {
         try {
-            let response = await axios.delete(`http://localhost:4000/deleteparking/${id}`);
+            let response = await axios.delete(`${url}/deleteparking/${id}`);
             window.location.reload();
         } catch (error) {
             console.error('Error deleting data:', error);

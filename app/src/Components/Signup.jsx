@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import { url } from '../url';
 
 const Signup = () => {
 
@@ -45,7 +46,7 @@ const Signup = () => {
                     return;
                 }
 
-                const response = await axios.post('http://localhost:4000/register', data);
+                const response = await axios.post(`${url}/register`, data);
                 if (response.data.emailExists) {
                     alert('Email already exists.');
                 } else {

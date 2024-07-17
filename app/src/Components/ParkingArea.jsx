@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { url } from '../url';
 
 const ParkingArea = () => {
 
@@ -8,7 +9,7 @@ const ParkingArea = () => {
 
     useEffect(() => {
         const fetchdata = async () => {
-            let response = await axios.get('http://localhost:4000/allarea')
+            let response = await axios.get(`${url}/allarea`)
             console.log(response.data);
             setData(response.data)
         }
@@ -19,7 +20,7 @@ const ParkingArea = () => {
 
     const handleDelete = async (id) => {
         try {
-            let response = await axios.delete(`http://localhost:4000/deleteparking/${id}`);
+            let response = await axios.delete(`${url}/deleteparking/${id}`);
             console.log(response);
             window.location.reload();
         } catch (error) {

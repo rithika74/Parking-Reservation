@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
+import { url } from '../url'
 
 const ReserveSlot = () => {
   const navigate = useNavigate()
@@ -11,7 +12,7 @@ const ReserveSlot = () => {
 
   useEffect(() => {
     const fetchdata = async () => {
-      let response = await axios.get('http://localhost:4000/allarea')
+      let response = await axios.get(`${url}/allarea`)
       console.log(response.data);
       setArea(response.data)
     }
@@ -48,7 +49,7 @@ const ReserveSlot = () => {
         console.log('reservationssss', reserveData);
         if (selectedArea) {
 
-          const response = await axios.post('http://localhost:4000/reserve', reserveData);
+          const response = await axios.post(`${url}/reserve`, reserveData);
 
           if (response.data) {
             setData('');

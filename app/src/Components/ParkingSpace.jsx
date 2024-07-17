@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { url } from '../url';
 
 const ParkingSpace = () => {
 
@@ -7,7 +8,7 @@ const ParkingSpace = () => {
 
     useEffect(() => {
         const fetchdata = async () => {
-            let response = await axios.get('http://localhost:4000/allarea')
+            let response = await axios.get(`${url}/allarea`)
             console.log(response.data);
             setData(response.data)
         }

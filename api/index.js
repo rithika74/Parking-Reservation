@@ -4,7 +4,6 @@ require('dotenv').config()
 const port = process.env.PORT;
 const cors = require('cors');
 const mongoose = require('mongoose');
-
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
 const usersRoute = require('./routes/users');
@@ -67,7 +66,7 @@ app.use('/updatespace', updatedspaceRoute);
 app.use('/areaview',areaviewRoute);
 
 app.listen(port, () => {
-    console.log(`Server is listening at http://localhost:${port}`);
+    console.log('Server Connected');
 });
 
 

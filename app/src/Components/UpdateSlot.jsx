@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { url } from '../url';
 
 const UpdateSlot = () => {
 
@@ -15,7 +16,7 @@ const UpdateSlot = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/slots/${slotId}`);
+                const response = await axios.get(`${url}/slots/${slotId}`);
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error)
@@ -27,7 +28,7 @@ const UpdateSlot = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/reservedarea/${areaId}`);
+                const response = await axios.get(`${url}/reservedarea/${areaId}`);
                 setareaData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -49,7 +50,7 @@ const UpdateSlot = () => {
             const updatedData = { ...data, slot: selectedSlot };
             console.log('dataaa', { slot: selectedSlot });
             try {
-                const response = await axios.put(`http://localhost:4000/addslot/${slotId}`, { slotno: selectedSlot });
+                const response = await axios.put(`${url}/addslot/${slotId}`, { slotno: selectedSlot });
                 console.log('Server response:', response.data);
                 alert('Slot reserved successfully');
                 navigate(`/userpage/reservations/${response.data._id}`)
