@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
         if (!passwordMatch) {
             return res.status(401).json({ message: 'Inavlid email or password' });
         }
-        const token = jwt.sign({ id: user.id, email: user.email, usertype: user.usertype }, 'abc')
+        const token = jwt.sign({ id: user.id, email: user.email, usertype: user.usertype }, process.env.SECRET_KEY)
         res.json({ user, token })
     } catch (error) {
         console.error('Error during login', error);

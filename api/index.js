@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const port = 4000;
+require('dotenv').config()
+const port = process.env.PORT;
 const cors = require('cors');
 const mongoose = require('mongoose');
 
@@ -29,7 +30,9 @@ const deleteparkingRoute = require('./routes/deleteparking');
 const updatedspaceRoute = require('./routes/updatespace');
 const areaviewRoute=require('./routes/area');
 
-mongoose.connect('mongodb://127.0.0.1:27017/parking')
+//(mongodb://127.0.0.1:27017/parking)
+
+mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log('Connected!'));
 
 const db = mongoose.connection;
