@@ -105,7 +105,7 @@ const ProviderDetails = () => {
                         <table className="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">User Id</th>
+                                    <th scope="col">Sl No.</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Date of Birth</th>
                                     <th scope="col">Email</th>
